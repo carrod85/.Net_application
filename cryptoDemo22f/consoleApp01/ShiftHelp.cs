@@ -9,6 +9,7 @@ public static class ShiftHelp
         
         while(!isValidInput)
         {
+            result = 0;
             Console.Write("Cesar shift amount or type 'exit' to finish: ");
             string? userInput = Console.ReadLine();
 
@@ -25,9 +26,9 @@ public static class ShiftHelp
             }
             else if (int.TryParse(userInput, out result))
             {
-                if (result >= lenghtAlpha || result <= 0)
+                if (Math.Abs(result) >= lenghtAlpha || result == 0)
                 {
-                    Console.WriteLine($"number greater than 0 and less than {lenghtAlpha} alphabet needed!!");
+                    Console.WriteLine($"number different than 0 and less than |{lenghtAlpha}| alphabet needed!!");
                     continue;
 
                 }

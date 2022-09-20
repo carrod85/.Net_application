@@ -7,9 +7,4 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-    <ItemGroup>
-      <Compile Remove="PlainTextHelp.cs" />
-      <Compile Remove="ShiftHelp.cs" />
-    </ItemGroup>
-
 </Project>
