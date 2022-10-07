@@ -41,12 +41,12 @@ public static class Helper
         bool isValidInput = false;
         int result = 0;
         int modResult = 0;
-        
+        string userInput="";
         while(!isValidInput)
         {
             result = 0;
             Console.Write("Cesar shift amount or type 'exit' to finish: ");
-            string? userInput = Console.ReadLine();
+            userInput += Console.ReadLine();
 
 
             if (userInput == "exit" )
@@ -81,6 +81,11 @@ public static class Helper
 
         }
 
+        if (userInput == "exit")
+        {
+            throw new ArgumentException("Program has finished.");
+        }
+        
         if (result == 0)
             throw new ArgumentException("value must be different than 0");
 
@@ -96,7 +101,7 @@ public static class Helper
         while(!isValidInput)
         {
             bool validLetters = true;
-            Console.Write("Plain text or type exit to finish: ");
+            Console.Write("Plain text or type 'exit' to finish: ");
             userInput = Console.ReadLine();
 
 
