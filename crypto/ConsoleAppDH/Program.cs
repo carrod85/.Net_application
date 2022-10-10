@@ -20,7 +20,7 @@ try
     int p = PrimeHelper.BiggestPrime(value);
     Console.WriteLine($"biggest prime from your input is: {p}");
     Console.Write("Public key G (base number)...");
-    var g = InputHelper.InputUser();
+    var g = InputHelper.InputUser3();
     Console.Write("PersonX private key A...");
     var a = InputHelper.InputUser2(p);
     Console.Write("PersonY private key B...");
@@ -31,7 +31,7 @@ try
     byte[]? resultado = {};
     
     Serialize.Suming(conv, ref resultado, a, g);
-    // simple check for up to double numbers. It works pretty well.
+    // simple check for up to double numbers. It works pretty well but very slow algorithm.
     
     double final=0;
     Console.WriteLine($"Double max value {Double.MaxValue}");

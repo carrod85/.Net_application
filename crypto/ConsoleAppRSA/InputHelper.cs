@@ -1,8 +1,8 @@
-namespace ConsoleAppDH;
+namespace ConsoleAppRSA;
 
 public class InputHelper
 {
-    public static int InputUser()
+    public static int Inputp()
     {
         bool isValidInput = false;
         int result = 0;
@@ -11,7 +11,7 @@ public class InputHelper
         while(!isValidInput)
         {
             
-            Console.Write("Write number or exit to finished: ");
+            Console.Write("Write number for p variable or 'exit' to finish: ");
             input += Console.ReadLine()?.Trim();
 
 
@@ -45,7 +45,7 @@ public class InputHelper
     }
     
     
-    public static int InputUser2(int primeNumber)
+    public static int Inputq()
     {
         bool isValidInput = false;
         int result = 0;
@@ -54,7 +54,7 @@ public class InputHelper
         while(!isValidInput)
         {
             
-            Console.Write("Write number or exit to finished: ");
+            Console.Write("Write number for q variable or 'exit' to finish: ");
             input += Console.ReadLine()?.Trim();
 
 
@@ -63,7 +63,7 @@ public class InputHelper
                 Console.WriteLine("Finishing program");
                 break;
             }
-            else if (string.IsNullOrWhiteSpace(input)) // is null or empty or white space
+            if (string.IsNullOrWhiteSpace(input)) // is null or empty or white space
             {
                 Console.WriteLine("incorrect input");
 
@@ -71,7 +71,7 @@ public class InputHelper
             else
             {
                 
-                ParseHelper.CheckParse2(input, ref result, primeNumber);
+                ParseHelper.CheckParse(input, ref result);
                 isValidInput = true;
             }
             
@@ -86,43 +86,45 @@ public class InputHelper
 
         return result;
     }
-
-    public static int InputUser3()
+    
+    public static long Inpute(long phi)
     {
         bool isValidInput = false;
-        int result = 0;
-        int modResult = 0;
-        string input = "";
-        while (!isValidInput)
+        long result = 0;
+        string input="";
+        while(!isValidInput)
         {
-
-            Console.Write("Write number or exit to finished: ");
+            
+            Console.Write("Write number for e variable or 'exit' to finish: ");
             input += Console.ReadLine()?.Trim();
 
 
-            if (input == "exit")
+            if (input == "exit" )
             {
                 Console.WriteLine("Finishing program");
                 break;
             }
-            else if (string.IsNullOrWhiteSpace(input)) // is null or empty or white space
+            if (string.IsNullOrWhiteSpace(input)) // is null or empty or white space
             {
                 Console.WriteLine("incorrect input");
 
             }
             else
             {
-
-                ParseHelper.CheckParse3(input, ref result);
+                
+                ParseHelper.CheckParseE(input, ref result, phi);
                 isValidInput = true;
             }
-
+            
         }
 
         if (input == "exit")
         {
             throw new ArgumentException("Program has finished.");
         }
+        
+        
+
         return result;
     }
 }

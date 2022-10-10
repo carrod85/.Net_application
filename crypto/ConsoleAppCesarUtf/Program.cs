@@ -9,8 +9,8 @@ Console.WriteLine("Hello, Vignere utf!");
 
 try
 {
+    
     var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(HelperInput.InputText());
-
     var passBytes = System.Text.Encoding.UTF8.GetBytes(HelperInput.InputText2());
 
 
