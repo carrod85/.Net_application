@@ -32,7 +32,7 @@ public static class PrimeHelper
             return 1;
     }
 
-    public static int BiggestPrime(int N)
+    public static int BiggestPrime(int N)// up to the number to avoid overflow
     {
         int temp = N;
         while (true)

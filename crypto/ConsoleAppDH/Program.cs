@@ -18,7 +18,7 @@ try
     string priming = PrimeHelper.IsPrime(value)==1? "number is prime": "number not prime";
     Console.WriteLine(priming);
     int p = PrimeHelper.BiggestPrime(value);
-    Console.WriteLine($"biggest prime from your input is: {p}");
+    Console.WriteLine($"biggest prime up to your input is: {p}");
     Console.Write("Public key G (base number)...");
     var g = InputHelper.InputUser3();
     Console.Write("PersonX private key A...");
@@ -53,7 +53,7 @@ try
     Console.WriteLine($"{finalResultA}={finalResultB}");
     // now bruteforce private key.
     var check = Bruteforce.Brute(g, p, computeA);
-    Console.WriteLine($"brute force obtaining private key A:{a}= Bruteforce result:{check}");
+    Console.WriteLine($"brute force obtaining private key A:{a} == Bruteforce result:{check}");
 
 
 
@@ -65,12 +65,3 @@ catch(Exception e)
 
 
 
-/*
-
-Console.Write("PersonX private key A:");
-var a = int.Parse(Console.ReadLine()?.Trim());
-
-Console.Write("PersonY private key B:");
-var b = int.Parse(Console.ReadLine()?.Trim());
-
-*/

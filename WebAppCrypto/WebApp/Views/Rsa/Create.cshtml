@@ -1,0 +1,75 @@
+@model WebApp.domain.Rsa
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+<script>
+      function myFunction() {
+        var x = document.getElementById("mySelect").value;
+        if (x === "Decryption") 
+        {
+            document.getElementById("decrypting").style.display = "block";   // enable form field code
+            document.getElementById("encrypting").style.display = "none";
+        }
+        else{
+            document.getElementById("decrypting").style.display = "none";   // enable form field code
+            document.getElementById("encrypting").style.display = "block";
+        }
+        
+        }
+</script>
+
+<h4>Rsa</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div >
+                <select id="mySelect" class="form-select"  onchange="myFunction()">
+                    <option value="Encryption">Encryption</option>
+                    <option value="Decryption">Decryption</option>
+                </select>
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AppUserId" value="@Guid.Empty"/>
+            <div class="form-group">
+                <label asp-for="PrimeP" class="control-label"></label>
+                <input asp-for="PrimeP" class="form-control" />
+                <span asp-validation-for="PrimeP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrimeQ" class="control-label"></label>
+                <input asp-for="PrimeQ" class="form-control" />
+                <span asp-validation-for="PrimeQ" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="E" class="control-label"></label>
+                <input asp-for="E" class="form-control" />
+                <span asp-validation-for="E" class="text-danger"></span>
+            </div>
+            <div id="encrypting" class="form-group">
+                <label asp-for="Message" class="control-label"></label>
+                <input asp-for="Message" class="form-control" />
+                <span asp-validation-for="Message" class="text-danger"></span>
+            </div>
+            <div id="decrypting" style="display:none" class="form-group">
+                <label asp-for="Base64EncryptedMessage" class="control-label"></label>
+                <input asp-for="Base64EncryptedMessage" class="form-control" />
+                <span asp-validation-for="Base64EncryptedMessage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

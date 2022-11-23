@@ -3,7 +3,7 @@ namespace ConsoleAppDH;
 public class ParseHelper
 {
     public static void CheckParse(string input, ref int val)
-    {//controlling than input dont overflow and that number is gretar than 1
+    {//controlling than input dont overflow and that number is greater than 1
 
         try
         {

@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppDH", "ConsoleAppD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppRSA", "ConsoleAppRSA\ConsoleAppRSA.csproj", "{1E187E7E-2F0E-45C6-8FEE-D021C85F45DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crypto", "Crypto\Crypto.csproj", "{2FBA021D-1AF4-42C7-9073-9ED45E960778}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{1E187E7E-2F0E-45C6-8FEE-D021C85F45DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E187E7E-2F0E-45C6-8FEE-D021C85F45DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E187E7E-2F0E-45C6-8FEE-D021C85F45DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FBA021D-1AF4-42C7-9073-9ED45E960778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FBA021D-1AF4-42C7-9073-9ED45E960778}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FBA021D-1AF4-42C7-9073-9ED45E960778}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FBA021D-1AF4-42C7-9073-9ED45E960778}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

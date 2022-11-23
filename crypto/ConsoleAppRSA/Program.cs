@@ -26,9 +26,11 @@ try
 
     var n = Calculations.nAndPhi(p, q).Item1;
     var phi = Calculations.nAndPhi(p, q).Item2;
-    /*
+    
+     
     Console.WriteLine($"n value: {n}");
     Console.WriteLine($"phi value: {phi}");
+    /*
     // e must be odd for sure since (p-1)*(q-1) is even for them to be coprime
     var exponent = InputHelper.Inpute(phi);
     Calculations.ValidExponent(ref exponent,phi);
@@ -36,7 +38,7 @@ try
     var d = Eea.ExtendedEuclid(exponent, phi);
     Console.WriteLine($"'d' is: {d}");
     var numberBytesKey = Calculations.NumberOfBytes(n);
-    Console.WriteLine($"'bytes of key' is: {numberBytesKey}");
+    //Console.WriteLine($"'bytes of key' is: {numberBytesKey}");
     var text = TextInput.InputText(n);
     var numberText = Calculations.BytesToNumber(text);
     Console.WriteLine($"'value of text number' is: {numberText}");
@@ -44,9 +46,9 @@ try
     Console.WriteLine($"'value of encryption' is: {encryption}");
     var decryption = Calculations.Modpow_expsqr(encryption, d, n);
     Console.WriteLine($"'value of decryption' is: {decryption}");
-    */
-    /*Using base64 for encrypted text*/
-    /*
+    
+    //Using base64 for encrypted text
+    
     var numberOfBytes = Calculations.NumberOfBytes(encryption);
     var byteAr = Calculations.NumberToBytes(encryption, numberOfBytes);
     var b64Text = System.Convert.ToBase64String(byteAr);

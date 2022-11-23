@@ -1,0 +1,77 @@
+@model WebApp.domain.Vigenere
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<script>
+
+      function DisplayFields() {
+        var x = document.getElementById("mySelect").value;
+        if (x === "Decryption") 
+        {
+            document.getElementById("decrypting").style.display = "block";   // enable form field code
+            document.getElementById("encrypting").style.display = "none";
+        }
+        else{
+            document.getElementById("decrypting").style.display = "none";   // enable form field code
+            document.getElementById("encrypting").style.display = "block";
+        }
+      }
+        
+      function ChangeFieldValues(){
+         var x = document.getElementById("mySelect").value;
+         if (x == "Decryption"){
+           document.getElementById("text").value='';
+         }
+         else{
+             document.getElementById("crypto").value='';
+             }
+      }
+       
+</script>
+
+<h4>Vigenere</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AppUserId" value="@Guid.Empty"/>
+            <div >
+                <select id="mySelect" class="form-select"  onchange="DisplayFields()">
+                    <option value="Encryption">Encryption</option>
+                    <option value="Decryption">Decryption</option>
+                </select>
+            </div>
+            <div id="encrypting" class="form-group">
+                <label asp-for="PlainText" class="control-label"></label>
+                <input id="text" asp-for="PlainText" class="form-control" />
+                <span asp-validation-for="PlainText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KeyPass" class="control-label"></label>
+                <input asp-for="KeyPass" class="form-control" />
+                <span asp-validation-for="KeyPass" class="text-danger"></span>
+            </div>
+            <div id="decrypting" style="display:none" class="form-group">
+                <label asp-for="Encryption" class="control-label"></label>
+                <input id="crypto"  asp-for="Encryption" class="form-control" />
+                <span asp-validation-for="Encryption" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input id="submit" type="submit" value="Save" class="btn btn-primary" onclick="ChangeFieldValues()" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

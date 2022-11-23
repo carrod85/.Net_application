@@ -2,75 +2,27 @@
 
 using ConsoleAppCesarUtf;
 
-Console.WriteLine("Hello, Vignere utf!");
+Console.WriteLine("Hello, Vigenere utf!");
 
-//Console.WriteLine("shift amount: ");
-//var amount = int.Parse(Console.ReadLine()!);
+
+// if you try to print the shifting bytes from the utf8 encoding you will fall into incorrect encondings that are not possible
+// to decode.  UTF-8 is a charset with a specific encoding format. arbitrary binary data is not valid UTF-8 data.
+   
 
 try
 {
-    
-    var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(HelperInput.InputText());
-    var passBytes = System.Text.Encoding.UTF8.GetBytes(HelperInput.InputText2());
+    var text = HelperInput.InputText();
+    var passBytes = HelperInput.InputText2();
+    var encryption = HelperInput.Encryption(text, passBytes);
+    Console.WriteLine($"Encryption: {encryption}");
+    var b64Text = HelperInput.InputText3();
+    var decryption = HelperInput.Decryption(b64Text, passBytes);
+    Console.WriteLine($"Decryption: {decryption}");
 
 
-    byte[] encryptedBytes = new Byte[plainTextBytes.Length];
-
-
-    for (int k=0,i=0; i < plainTextBytes.Length; i++,k++)
-    {
-        var a = (int)plainTextBytes[i];
-        var b = (int)passBytes[k];
-        var c = (a + b) % 256;
-        encryptedBytes[i] = (byte) c;
-
-
-        if (k == passBytes.Length - 1)
-            k = -1;
-
-    }
-
-
-    byte[] byteconversion = new Byte[plainTextBytes.Length];
-    for (int k=0, i = 0; i < encryptedBytes.Length; i++,k++)
-    {
-        var a = (int)encryptedBytes[i];
-        var b = (int)passBytes[k];
-        var c = (a - b) % 256;
-        if (c < 0)
-            c += 256;
-        byteconversion[i] = (byte) c;
-        
-        
-        if (k == passBytes.Length-1 )
-            k = -1; 
-    }
-    // if you try to print the shifting bytes from the utf8 encoding you will fall into incorrect encondings that are not possible
-    // to decode.  UTF-8 is a charset with a specific encoding format. arbitrary binary data is not valid UTF-8 data.
-    var b64Text = System.Convert.ToBase64String(encryptedBytes);
-    Console.WriteLine("encryptedText: " + b64Text);
-    var decryptedText = System.Text.Encoding.UTF8.GetString(byteconversion);
-    Console.WriteLine("decryptedText: " + decryptedText);
 
 }
-catch(Exception e)
+catch (Exception e)
 {
     Console.WriteLine(e.Message);
 }
-
-/*
-foreach (var b in plainTextBytes)
-{
-    var a = b + 20;
-    Console.WriteLine(b);
-    Console.WriteLine(a);
-    
-}
-//shift the bytes
-var b64Text = System.Convert.ToBase64String(plainTextBytes);
-Console.WriteLine("b64 text: " + b64Text);
-//unshift the bytes
-var decryptedBytes = System.Convert.FromBase64String(b64Text);
-var decryptedText = System.Text.Encoding.UTF8.GetString(decryptedBytes);
-Console.WriteLine("decryptedText: " + decryptedText);
-*/

@@ -8,7 +8,7 @@ public class Breaker
         bool found = false;
         while (!found)
         {
-            searchValue -= 2;
+            searchValue -= 1;
             if (n % searchValue == 0)
             {
                 found = true;
